@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body
+      {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "vue": "https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.45/vue.esm-browser.min.js"
+      }
+    }
+  </script>
+  <script type="module" crossorigin src="./assets/tooltip.js"></script>
+  <script type="module" crossorigin src="./assets/toast.js"></script>
+  <body>
+    <div id="app">
+      <a href="/">back</a>
+      <h3>Vue3 Web Components</h3>
+      <h1>Tooltip</h1>
+      <button onclick="showToast()">toast</button>
+      <custom-toast >
+        <span slot="additionalData">
+          <div>
+            <h3>additional info in slot</h3>
+            <i>tandar mandara broc</i>
+          </div>
+        </span>
+      </custom-toast>
+      <br><br>
+      <button cadooz-tooltip data-label="djuro spirov">sdffsdfdsf sefewt we wert gs</button>
+      <input cadooz-tooltip position="is-right" size="is-small" data-label="visimir medjunogovicisan" />
+      <br><br>
+      <p>asfasfasfsafasf  <span cadooz-tooltip position="is-bottom" background="white" color="black" data-label="djuro spirov">AAAAA</span>  awrerew rwwerfwerw</p>
+      <br>
+      <p cadooz-tooltip position="is-left" size="is-small" data-label="smrdo bazdinov trt">aaaaaaaaaa</p>
+      <br>
+      <h1 cadooz-tooltip data-label="djuro spirov">aaaaaaaaaa</h1>
+      <br>
+      <img cadooz-tooltip src="./nipa.png" alt="" data-label="mitrana todorova" size="is-medium">
+      <custom-tooltip position="is-top" ></custom-tooltip>
+    </div>
+    <script>
+      const toast = document.querySelector('custom-toast');
+      function setAttributes(el, attrs) {
+        for(var key in attrs) {
+          el.setAttribute(key, attrs[key]);
+        }
+      }
+      const td = {
+        title: 'Success',
+        message: '<h3>message title</h3><p>message text</p>uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu',
+        type: 'success',
+      };
+      toast.setAttribute("toast-data", JSON.stringify(td));
+      //toast.setAttribute("message", td);
+      //setAttributes(toast, td)
+      const ts = {
+        position: 'right-top',
+        decoration: true,
+        colorized: false,
+        backdrop: true,
+        color: '#ffb700'
+      };
+      toast.setAttribute("toast-style", JSON.stringify(ts));
+      //toast.setAttribute("position", 'center')
+
+      //setAttributes(toast, ts)
+
+      const showToast = () => {
+        toast.setAttribute('is-active', 'true');
+      };
+      window.addEventListener('close-toast', toastClosed);
+      function toastClosed() {
+        toast.setAttribute('is-active', 'false');
+      }
+    </script>
+  </body>
+</html>
