@@ -1,16 +1,16 @@
 <template>
   <h1 style="text-align: center; margin-bottom: 2em">Tooltip - demo</h1>
   <div class="demo">
-    <h3 class="component" cadooz-tooltip :data-label="props[4].val">
+    <h3 class="component" cadooz-tooltip :data-label="property('text')">
       {{ abc }}
     </h3>
     <div class="props">
-      <h2>PROPERTIES</h2>
+      <h2>PROPS</h2>
       <ul>
         <li v-for="prop in props">
           <label :for="prop.name">{{ prop.name }}</label>
-          <span v-if="prop.type === 'text'"
-            ><input v-model="prop.val" type="text" :id="prop.name"
+          <span v-if="prop.type !== 'select'"
+            ><input v-model="prop.val" :type="prop.type" :id="prop.name"
           /></span>
           <span v-if="prop.type === 'select'">
             <select v-model="prop.val" :id="prop.name">
@@ -24,15 +24,15 @@
     </div>
   </div>
   <tooltip
-    :size="props[2].val"
-    :position="props[3].val"
-    :background="props[0].val"
-    :color="props[1].val"
-    :radius="props[5].val"
-    :shadow="props[6].val"
-    :font="props[7].val"
-    :fontweight="props[8].val"
-    :fontsize="props[9].val"
+    :size="property('size')"
+    :position="property('position')"
+    :background="property('background')"
+    :color="property('color')"
+    :radius="property('radius')"
+    :shadow="property('shadow')"
+    :font="property('font')"
+    :fontweight="property('fontweight')"
+    :fontsize="property('fontsize')"
   />
 </template>
 <script setup>
@@ -41,18 +41,22 @@ import { ref } from "vue";
 const abc = ref("hover me");
 const positions = ref(["is-top", "is-bottom", "is-left", "is-right"]);
 const sizes = ref(["is-small", "is-medium", "is-large"]);
+const option = ref(['true', 'false']);
 const props = ref([
-  { name: "background", val: 'black', type: "text" },
-  { name: "color", val: 'white', type: "text" },
+  { name: "background", val: '#000000', type: "color" },
+  { name: "color", val: '#ffffff', type: "color" },
   { name: "size", val: 'is-medium', type: "select", source: sizes.value },
   { name: "position", val: 'is-top', type: "select", source: positions.value },
   { name: "text", val: 'tooltip content', type: "text" },
   { name: "radius", val: '0px', type: "text" },
-  { name: "shadow", val: true, type: "text" },
+  { name: "shadow", val: true, type: "select", source: option.value },
   { name: "font", val: `'Open Sans', sans-serif`, type: "text" },
-  { name: "fontweight", val: 400, type: "text" },
+  { name: "fontweight", val: 400, type: "number" },
   { name: "fontsize", val: '1em', type: "text" }
 ]);
+const property = (type) => {
+  return props.value.find(t => t.name === type).val
+}
 </script>
 <style scoped>
 .demo {

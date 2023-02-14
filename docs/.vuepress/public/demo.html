@@ -12,14 +12,49 @@
       rel="stylesheet"
     />
     <style>
-      body
-      {
+      body {
+        height: 100vH;
+      }
+      #app {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 2em;
+        font-family: "'Open Sans', sans-serif";
+        height: 100%;
+      }
+      button {
+        padding: 1em;
+        cursor: pointer;
+        font-size: 1.5em;
+        margin-bottom: 2em;
+        background-color: #fff;
+        border: 1px solid #dddddd;
+        border-radius: 4px;
+      }
+      button:hover {
+        border: 1px solid #aaaeb7;
+      }
+      a {
+        background: rgb(58, 166, 117);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 1em;
+        font-weight: 700;
+        font-size: 1.5em;
+        cursor: pointer;
+        text-decoration: none !important;
+      }
+      a:hover {
+        background: rgba(58, 166, 117, 0.51);
+      }
+      h1 {
+        padding: 2em;
       }
     </style>
+    <link rel="stylesheet" href="./assets/datepicker.css">
   </head>
-
   <script type="importmap">
     {
       "imports": {
@@ -29,54 +64,47 @@
   </script>
   <script type="module" crossorigin src="./assets/tooltip.js"></script>
   <script type="module" crossorigin src="./assets/toast.js"></script>
+  <script type="module" crossorigin src="./assets/datepicker.js"></script>
   <body>
     <div id="app">
       <a href="/">back</a>
-      <h3>Vue3 Web Components</h3>
-      <h1>Tooltip</h1>
-      <button onclick="showToast()">toast</button>
-      <custom-toast >
+      <h1>cadooz web components</h1>
+      <div class="content">
+        <button onclick="showToast()" cadooz-tooltip data-label="tooltip content">
+          hover me / click me
+        </button>
+      </div>
+      <custom-toast>
         <span slot="additionalData">
           <div>
             <h3>additional info in slot</h3>
-            <i>tandar mandara broc</i>
+            <custom-datepicker id="deliveryTime" propdate="02.12.2022"></custom-datepicker>
           </div>
         </span>
       </custom-toast>
-      <br><br>
-      <button cadooz-tooltip data-label="djuro spirov">sdffsdfdsf sefewt we wert gs</button>
-      <input cadooz-tooltip position="is-right" size="is-small" data-label="visimir medjunogovicisan" />
-      <br><br>
-      <p>asfasfasfsafasf  <span cadooz-tooltip position="is-bottom" background="white" color="black" data-label="djuro spirov">AAAAA</span>  awrerew rwwerfwerw</p>
-      <br>
-      <p cadooz-tooltip position="is-left" size="is-small" data-label="smrdo bazdinov trt">aaaaaaaaaa</p>
-      <br>
-      <h1 cadooz-tooltip data-label="djuro spirov">aaaaaaaaaa</h1>
-      <br>
-      <img cadooz-tooltip src="./nipa.png" alt="" data-label="mitrana todorova" size="is-medium">
-      <custom-tooltip position="is-top" ></custom-tooltip>
+      <custom-tooltip position="is-top"></custom-tooltip>
     </div>
     <script>
-      const toast = document.querySelector('custom-toast');
+      const toast = document.querySelector("custom-toast");
       function setAttributes(el, attrs) {
-        for(var key in attrs) {
+        for (var key in attrs) {
           el.setAttribute(key, attrs[key]);
         }
       }
       const td = {
-        title: 'Success',
-        message: '<h3>message title</h3><p>message text</p>uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu',
-        type: 'success',
+        title: "Info",
+        message: "<h3>message title</h3><p>message text</p>message description",
+        type: "info",
       };
       toast.setAttribute("toast-data", JSON.stringify(td));
       //toast.setAttribute("message", td);
       //setAttributes(toast, td)
       const ts = {
-        position: 'right-top',
+        position: "center",
         decoration: true,
         colorized: false,
         backdrop: true,
-        color: '#ffb700'
+        color: "#ffb700",
       };
       toast.setAttribute("toast-style", JSON.stringify(ts));
       //toast.setAttribute("position", 'center')
@@ -84,11 +112,11 @@
       //setAttributes(toast, ts)
 
       const showToast = () => {
-        toast.setAttribute('is-active', 'true');
+        toast.setAttribute("is-active", "true");
       };
-      window.addEventListener('close-toast', toastClosed);
+      window.addEventListener("close-toast", toastClosed);
       function toastClosed() {
-        toast.setAttribute('is-active', 'false');
+        toast.setAttribute("is-active", "false");
       }
     </script>
   </body>

@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-2e04d5a0","path":"/components/Toast-Demo.html","title":"","lang":"en-US","frontmatter":{},"headers":[],"git":{"updatedTime":1672553423000,"contributors":[{"name":"Nikola Pavicevic","email":"nijepa@gmail.com","commits":1}]},"filePathRelative":"components/Toast-Demo.md"}');export{e as data};

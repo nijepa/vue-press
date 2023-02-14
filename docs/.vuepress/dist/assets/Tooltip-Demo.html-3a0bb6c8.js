@@ -1,0 +1,1 @@
+import{_ as e,M as t,p as n,q as c,N as _}from"./framework-94cd3f1f.js";const l={};function p(r,s){const o=t("tooltip-component");return n(),c("div",null,[_(o)])}const a=e(l,[["render",p],["__file","Tooltip-Demo.html.vue"]]);export{a as default};

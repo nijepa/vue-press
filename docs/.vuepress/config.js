@@ -4,10 +4,9 @@ import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 import { getDirname, path } from '@vuepress/utils'
 
 const __dirname = getDirname(import.meta.url)
-console.log(__dirname)
 
 export default defineUserConfig({
-  title: 'Web-components',
+  title: 'web-components',
   description: 'Vue3 web-components',
   plugins: [
     registerComponentsPlugin({
@@ -25,6 +24,7 @@ export default defineUserConfig({
   }),
   alias: {
     '@theme/TooltipComponent.vue': path.resolve(__dirname, './layouts/TooltipComponent.vue'),
-    '@theme/ToastComponent.vue': path.resolve(__dirname, './layouts/ToastComponent.vue')
+    '@theme/ToastComponent.vue': path.resolve(__dirname, './layouts/ToastComponent.vue'),
+    '@theme/DatepickerComponent.vue': path.resolve(__dirname, './layouts/DatepickerComponent.vue')
   },
 })

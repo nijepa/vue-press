@@ -5,13 +5,14 @@ import ParentLayout from '@vuepress/theme-default/layouts/Layout.vue'
 <template>
   <ParentLayout>
     <template #page-bottom>
-      <div class="my-footer">This is my custom page footer</div>
+      <div class="my-footer">cadooz</div>
     </template>
   </ParentLayout>
 </template>
 
 <style lang="css">
 .my-footer {
+  border-top: 1px solid #eaecef;
   text-align: center;
 }
 </style>

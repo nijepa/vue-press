@@ -3,12 +3,12 @@
   <div class="demo">
     <button @click="show" class="component"><h3>click me</h3></button>
     <div class="props">
-      <h2>PROPERTIES</h2>
+      <h2>PROPS</h2>
       <ul>
         <li v-for="prop in props">
           <label :for="prop.name">{{ prop.name }}</label>
-          <span v-if="prop.type === 'text'"
-            ><input v-model="prop.val" type="text" :id="prop.name"
+          <span v-if="prop.type !== 'select'"
+            ><input v-model="prop.val" :type="prop.type" :id="prop.name"
           /></span>
           <span v-if="prop.type === 'select'">
             <select v-model="prop.val" :id="prop.name">
@@ -56,23 +56,26 @@ const props = ref([
   { name: "type", val: "success", type: "select", source: types.value },
   { name: "position", val: "center", type: "select", source: positions.value },
   { name: "font", val: `'Open Sans', sans-serif`, type: "text" },
-  { name: "color", val: "#ffffff;", type: "text" },
+  { name: "color", val: "#ffffff", type: "color" },
 ]);
+const property = (type) => {
+  return props.value.find(t => t.name === type).val
+}
 const td = computed(() => {
   return {
-    title: props.value[0].val,
-    message: props.value[1].val,
-    type: props.value[5].val,
+    title: property('title'),
+    message: property('message'),
+    type: property('type'),
   };
 });
 const ts = computed(() => {
   return {
-    decoration: props.value[2].val,
-    colorized: props.value[3].val,
-    backdrop: props.value[4].val,
-    position: props.value[6].val,
-    font: props.value[7].val,
-    color: props.value[8].val,
+    decoration: property('decoration'),
+    colorized: property('colorized'),
+    backdrop: property('backdrop'),
+    position: property('position'),
+    font: property('font'),
+    color: property('color'),
   };
 });
 const show = () => {

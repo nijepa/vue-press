@@ -1,0 +1,1 @@
+const a=JSON.parse('{"key":"v-8daa1a0e","path":"/","title":"Cadooz","lang":"en-US","frontmatter":{},"headers":[],"git":{"updatedTime":1672553423000,"contributors":[{"name":"Nikola Pavicevic","email":"nijepa@gmail.com","commits":1}]},"filePathRelative":"README.md"}');export{a as data};

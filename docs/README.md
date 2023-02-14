@@ -13,7 +13,7 @@ features:
     details: VuePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
 footer: MIT Licensed | Copyright © 2022-present Cadooz
 --- -->
-# Cadooz
+# cadooz
 #### web-components
 #### (standalone web components made with Vite & Vue3)
 <hr><br>
@@ -31,7 +31,7 @@ footer: MIT Licensed | Copyright © 2022-present Cadooz
 - global props
 - individual props (every place of apperience) can overwrite global ones
 - props: label, size, position, text color, font, background, radius, shadow
-<br><br>
+<br><br><br>
 <a class="button" href="./demo.html">Demo &#10139;</a>
 
 <style>

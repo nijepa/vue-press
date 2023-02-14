@@ -107,3 +107,5 @@
   toast.setAttribute('toast-style', JSON.stringify(ts))
 ```
 <hr>
+
+## [Demo](./Datepicker-Demo.md)
