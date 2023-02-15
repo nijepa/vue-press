@@ -1,1 +1,0 @@
-import{_ as o,M as t,p as n,q as c,N as s}from"./framework-94cd3f1f.js";const a={};function _(r,m){const e=t("toast-component");return n(),c("div",null,[s(e)])}const p=o(a,[["render",_],["__file","Toast-Demo.html.vue"]]);export{p as default};
